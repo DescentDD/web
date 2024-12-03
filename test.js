@@ -1,10 +1,10 @@
 async function getAIResponse(prompt) {
-    const apiKey = "kTyOXcrXavZAswJQLNrD:VwqUlrkNmmxzolrPVxag"; // 替换为你的 API 密钥
+    const apiKey = "tRmWtTcAbHLSKcXWdTwY:YCvvKjKqRQZBQnJZMdAo"; // 替换为你的 API 密钥
     const apiUrl = "https://spark-api-open.xf-yun.com/v1/chat/completions"; // 替换为你的 API URL
 
     // 构造请求负载
     const payload = {
-        model: "lite", // 替换为实际的大模型名称
+        model: "4.0Ultra", // 替换为实际的大模型名称
         messages: [
             { role: "user", content: prompt }
         ],
