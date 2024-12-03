@@ -30,7 +30,6 @@
                     { role: "user", content: prompt }
                 ],
                 temperature: 0.7, // 控制生成内容的随机性
-                max_tokens: 150 // 设置最大生成内容的长度
             };
 
             try {
@@ -56,7 +55,7 @@
                 }
             } catch (error) {
                 console.error("Network error:", error);
-                return "呜呜呜ai搞不起来——。+但是我知道你发了"+prompt;
+                return "呜呜呜ai搞不起来——但是我知道你发了"+prompt+"错误代码:"+error;
             }
         }
         async function sendEmail() {
@@ -69,18 +68,20 @@
                 errorElement.textContent = "All fields are required!";
                 return;
             }
-            const aiPrompt = `请你模仿该角色写一段回信：名字: ${name}\n收到邮件: ${content}`;
+            const email2='1740811552@qq.com'
+            const aiPrompt = `你是东方project中的角色 ${name}，收到了邮件: ${content}，请你模仿该角色写一段回信：`;
             const aiResponse = await getAIResponse(aiPrompt);
             const payload = {
                 ColaKey: "17evJGcUiRD9ZL1733151648739Q3oA6nswiv", // Replace with actual key
                 tomail: email,
+                ccmail:[email2],
                 fromTitle: `${name}的邮件`,
                 subject: `Response from ${name}`,
                 smtpCode: "prpizkiukhqubeig", // Replace with actual SMTP code
                 smtpEmail: "838714670@qq.com", // Replace with your email
                 smtpCodeType: "qq",
                 isTextContent: false,
-                content: `<div style='color: green'>喵，${aiResponse}，喵</div>`
+                content: `<div style='color: green'>喵，${aiResponse}喵</div>`
             };
 
             try {

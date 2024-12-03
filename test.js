@@ -9,7 +9,6 @@ async function getAIResponse(prompt) {
             { role: "user", content: prompt }
         ],
         temperature: 0.7, // 控制生成内容的随机性
-        max_tokens: 150 // 设置最大生成内容的长度
     };
 
     try {
@@ -41,7 +40,7 @@ async function getAIResponse(prompt) {
 
 // 调用函数并打印结果
 (async () => {
-    const prompt = "请你模仿该角色写一段回信：名字: 帕露西\n收到邮件: 我喜欢你"; // 替换为你想要发送的提示词
+    const prompt = "你是 水桥帕露西，请你模仿该角色写一段回信：收到邮件: 我喜欢你。你狠可爱。请告诉我你的符卡名字。"; // 替换为你想要发送的提示词
     const result = await getAIResponse(prompt);
 
 console.log(result);
