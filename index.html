@@ -46,7 +46,10 @@
                 // 处理响应
                 if (response.ok) {
                     const responseData = await response.json();
-                    return JSON.stringify(responseData, null, 2); // 美化响应结果
+                    let result=JSON.stringify(responseData, null, 2);
+                    let jsonResult = JSON.parse(result);
+                    // 提取 content 部分
+                    return jsonResult.choices[0].message.content;// 美化响应结果
                 } else {
                     console.error("Error:", response.statusText);
                     return `API错误: ${response.statusText}`;
